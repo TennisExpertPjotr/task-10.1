@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Task_10._1</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="a-bank-black-logo.png" />
+    <None Remove="a-bank-logo.png" />
+    <None Remove="profile-icon.png" />
+    <None Remove="profile.png" />
+    <None Remove="red-circle-icon.png" />
+    <None Remove="worker-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="a-bank-black-logo.png" />
+    <Resource Include="a-bank-logo.png" />
+    <Resource Include="profile-icon.png" />
+    <Resource Include="profile.png" />
+    <Resource Include="red-circle-icon.png" />
+    <Resource Include="worker-icon.png" />
+  </ItemGroup>
+
+</Project>

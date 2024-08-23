@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|solutionrelative:task 10.1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\clienteditor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|solutionrelative:task 10.1\\clienteditor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|solutionrelative:task 10.1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|solutionrelative:task 10.1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\clienteditor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|solutionrelative:task 10.1\\clienteditor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|solutionrelative:task 10.1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC7407F4-C6E7-45B7-B1A5-E460E1066188}|Task 10.1\\Task 10.1.csproj|c:\\users\\ivand\\source\\repos\\task 10.1\\task 10.1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -22,11 +34,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "ClientEditor.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\ClientEditor.xaml.cs",
+              "RelativeDocumentMoniker": "Task 10.1\\ClientEditor.xaml.cs",
+              "ToolTip": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\ClientEditor.xaml.cs",
+              "RelativeToolTip": "Task 10.1\\ClientEditor.xaml.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBkAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T21:27:15.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientEditor.xaml",
+              "DocumentMoniker": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\ClientEditor.xaml",
+              "RelativeDocumentMoniker": "Task 10.1\\ClientEditor.xaml",
+              "ToolTip": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\ClientEditor.xaml",
+              "RelativeToolTip": "Task 10.1\\ClientEditor.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-23T21:22:25.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\Client.cs",
+              "RelativeDocumentMoniker": "Task 10.1\\Client.cs",
+              "ToolTip": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\Client.cs",
+              "RelativeToolTip": "Task 10.1\\Client.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAAAoAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T19:04:45.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\App.xaml",
               "RelativeDocumentMoniker": "Task 10.1\\App.xaml",
@@ -38,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Task 10.1\\MainWindow.xaml",
@@ -56,9 +106,10 @@
               "RelativeDocumentMoniker": "Task 10.1\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\ivand\\source\\repos\\Task 10.1\\Task 10.1\\MainWindow.xaml.cs",
               "RelativeToolTip": "Task 10.1\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAMAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAwEEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T15:39:42.121Z"
+              "WhenOpened": "2024-07-19T15:39:42.121Z",
+              "EditorCaption": ""
             }
           ]
         }

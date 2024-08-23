@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="a-bank-black-logo.png" />
     <None Remove="a-bank-logo.png" />
+    <None Remove="ad.PNG" />
     <None Remove="profile-icon.png" />
     <None Remove="profile.png" />
     <None Remove="red-circle-icon.png" />
@@ -21,6 +22,7 @@
   <ItemGroup>
     <Resource Include="a-bank-black-logo.png" />
     <Resource Include="a-bank-logo.png" />
+    <Resource Include="ad.PNG" />
     <Resource Include="profile-icon.png" />
     <Resource Include="profile.png" />
     <Resource Include="red-circle-icon.png" />

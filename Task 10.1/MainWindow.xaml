@@ -26,23 +26,22 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="employeesList" Grid.Column="0" Margin="10 10 10 60">
+            <ListBox x:Name="ClientsListBox" Grid.Column="0" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="5">
-                            <Image Width="100" Height="75" Source="{Binding Path=ImagePath}" />
-                            <TextBlock FontSize="16" Text="{Binding Path=Title}" HorizontalAlignment="Center" />
-                            <TextBlock FontSize="16" Text="{Binding Path=Company}" HorizontalAlignment="Center" />
+                            <TextBlock FontSize="16" Text="{Binding Path=Surname}" HorizontalAlignment="Center" />
+                            <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                            <TextBlock FontSize="16" Text="{Binding Path=Patronymic}" HorizontalAlignment="Center" />
+                            <TextBlock FontSize="16" Text="{Binding Path=PhoneNumber}" HorizontalAlignment="Center" />
+                            <TextBlock FontSize="16" Text="{Binding Path=PassportData}" HorizontalAlignment="Center" />
+                            <Button Content="Редактировать" FontSize="14" Click="DetailsButton_Click" Tag="{Binding}"
+                                    Background="#FF181818" Foreground="White" BorderBrush="#FF181818" Padding="5"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Grid.Column="0" 
-                    Height="40"
-                    VerticalAlignment="Bottom"
-                    Margin="10"
-                    Background="#FFEF3124" Content="Обновить" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FFEF3124"
-                    />
+            <Image Grid.Column="1" Margin="10" Source="/ad.PNG"/>
         </Grid>
     </Grid>
 </Window>

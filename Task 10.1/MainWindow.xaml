@@ -29,15 +29,17 @@
             <ListBox x:Name="ClientsListBox" Grid.Column="0" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="5">
-                            <TextBlock FontSize="16" Text="{Binding Path=Surname}" HorizontalAlignment="Center" />
-                            <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
-                            <TextBlock FontSize="16" Text="{Binding Path=Patronymic}" HorizontalAlignment="Center" />
-                            <TextBlock FontSize="16" Text="{Binding Path=PhoneNumber}" HorizontalAlignment="Center" />
-                            <TextBlock FontSize="16" Text="{Binding Path=PassportData}" HorizontalAlignment="Center" />
-                            <Button Content="Редактировать" FontSize="14" Click="DetailsButton_Click" Tag="{Binding}"
-                                    Background="#FF181818" Foreground="White" BorderBrush="#FF181818" Padding="5"/>
-                        </StackPanel>
+                        <TextBlock Padding="5" Margin="2" Background="AliceBlue">
+                            <StackPanel Margin="2">
+    <TextBlock FontSize="16" Text="{Binding Path=Surname}" HorizontalAlignment="Center" />
+    <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+    <TextBlock FontSize="16" Text="{Binding Path=Patronymic}" HorizontalAlignment="Center" />
+    <TextBlock FontSize="16" Text="{Binding Path=PhoneNumber}" HorizontalAlignment="Center" />
+    <TextBlock FontSize="16" Text="{Binding Path=PassportData}" HorizontalAlignment="Center" />
+    <Button Content="Редактировать" FontSize="14" Click="DetailsButton_Click" Tag="{Binding}"
+            Background="#FF181818" Foreground="White" BorderBrush="#FF181818" Padding="5"/>
+</StackPanel>
+                        </TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Printing;
 
 namespace Task_10._1
 {
@@ -20,16 +21,44 @@ namespace Task_10._1
     public partial class MainWindow : Window
     {
         private List<Client> clients = new List<Client>();
+        private List<ClientForManager> clientsForManager = new List<ClientForManager>();
+        private string role;
         private Client selectedClient;
         private const string filePath = "clients.json";
 
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            // Загрузка данных из JSON при запуске приложения
-            LoadClientsFromJson();
-            ClientsListBox.ItemsSource = clients;
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem selectedItem = AdminsComboBox.SelectedItem as ComboBoxItem;
+
+            if (selectedItem != null)
+            {
+                string selectedItemText = selectedItem.Content.ToString();
+                if (selectedItemText == "Консультант")
+                {
+                    role = "consultant";
+                    LoadClientsFromJson();
+                    ClientsListBox.ItemsSource = clients;
+                }
+                else if (selectedItemText == "Менеджер")
+                {
+                    role = "manager";
+                    LoadClientsForManagerFromJson();
+                    ClientsListBox.ItemsSource = clientsForManager;
+                }
+                else
+                {
+                    MessageBox.Show("Неизвестный пользователь", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите под чьими правами вы хотите войти в систему");
+            }
         }
 
         private void LoadClientsFromJson()
@@ -39,7 +68,13 @@ namespace Task_10._1
                 try
                 {
                     string json = File.ReadAllText(filePath);
-                    clients = JsonSerializer.Deserialize<List<Client>>(json);
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true,
+                        IncludeFields = true
+                    };
+
+                    clients = JsonSerializer.Deserialize<List<Client>>(json, options);
                 }
                 catch (Exception ex)
                 {
@@ -48,33 +83,49 @@ namespace Task_10._1
             }
         }
 
-        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+        private void LoadClientsForManagerFromJson()
         {
-            Button button = sender as Button;
-            selectedClient = button.Tag as Client;
-
-            // Открытие нового окна с информацией о клиенте
-            ClientEditor detailsWindow = new ClientEditor(selectedClient);
-            bool? result = detailsWindow.ShowDialog();
-
-            if (result == true)
+            if (File.Exists(filePath))
             {
-                // Обновление списка клиентов в ListBox
-                ClientsListBox.Items.Refresh();
-                SaveInfo();
+                try
+                {
+                    string json = File.ReadAllText(filePath);
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true,
+                        IncludeFields = true
+                    };
+
+                    clientsForManager = JsonSerializer.Deserialize<List<ClientForManager>>(json, options);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
-        private void SaveInfo()
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            Button button = sender as Button;
+
+            if (role == "manager")
             {
-                string json = JsonSerializer.Serialize(clients, new JsonSerializerOptions { WriteIndented = true });
-                File.WriteAllText(filePath, json);
+                selectedClient = button.Tag as ClientForManager; // Менеджер редактирует ClientForManager
             }
-            catch (Exception ex)
+            else if (role == "consultant")
             {
-                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                selectedClient = button.Tag as Client; // Консультант редактирует Client
+            }
+
+            if (selectedClient != null)
+            {
+                ClientEditor detailsWindow = new ClientEditor(selectedClient, role);
+                bool? result = detailsWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Клиент не выбран или тип клиента неверен.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -16,6 +16,13 @@
                Grid.Row="0" 
                VerticalAlignment="Top" Height="30" Width="30" Source="/a-bank-logo.png"/>
         <TextBlock Grid.Row="0" Margin="29 0 0 0" Background="#FFEF3124"/>
+        <Image Grid.Row="0" HorizontalAlignment="Right" Source="/worker-icon.png" Margin="0 2 172 2"/>
+        <ComboBox x:Name="AdminsComboBox" Grid.Row="0" Width="100" HorizontalAlignment="Right" Margin="2 2 70 2">
+            <ComboBoxItem Content="Консультант"/>
+            <ComboBoxItem Content="Менеджер"/>
+        </ComboBox>
+        <Button Content="Войти" Grid.Column="0" Width="60" HorizontalAlignment="Right" Margin="5 3 5 3"
+                Foreground="White" BorderBrush="#FF181818" Background="#FF181818" Click="LoginButton_Click"/>
         <TextBlock Grid.Row="2" 
                    Background="#FF181818" 
                    Foreground="White" 
@@ -31,14 +38,14 @@
                     <DataTemplate>
                         <TextBlock Padding="5" Margin="2" Background="AliceBlue">
                             <StackPanel Margin="2">
-    <TextBlock FontSize="16" Text="{Binding Path=Surname}" HorizontalAlignment="Center" />
-    <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
-    <TextBlock FontSize="16" Text="{Binding Path=Patronymic}" HorizontalAlignment="Center" />
-    <TextBlock FontSize="16" Text="{Binding Path=PhoneNumber}" HorizontalAlignment="Center" />
-    <TextBlock FontSize="16" Text="{Binding Path=PassportData}" HorizontalAlignment="Center" />
-    <Button Content="Редактировать" FontSize="14" Click="DetailsButton_Click" Tag="{Binding}"
-            Background="#FF181818" Foreground="White" BorderBrush="#FF181818" Padding="5"/>
-</StackPanel>
+                                <TextBlock FontSize="16" Text="{Binding Path=Surname}" HorizontalAlignment="Center" />
+                                <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                                <TextBlock FontSize="16" Text="{Binding Path=Patronymic}" HorizontalAlignment="Center" />
+                                <TextBlock FontSize="16" Text="{Binding Path=PhoneNumber}" HorizontalAlignment="Center" />
+                                <TextBlock FontSize="16" Text="{Binding Path=PassportData}" HorizontalAlignment="Center" />
+                                <Button Content="Редактировать" FontSize="14" Click="EditButton_Click" Tag="{Binding}"
+                                Background="#FF181818" Foreground="White" BorderBrush="#FF181818" Padding="5"/>
+                        </StackPanel>
                         </TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

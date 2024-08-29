@@ -14,7 +14,7 @@ namespace Task_10._1
         private string name;
         private string patronymic;
         private string phoneNumber;
-        private string passportData;
+        protected string passportData;
 
         public Client(string surname, string name, string patronymic, string phoneNumber, string passportData)
         {
@@ -28,16 +28,19 @@ namespace Task_10._1
         public string Surname
         {
             get { return surname; }
+            protected set { surname = value; }
         }
 
         public string Name
         {
             get { return name; }
+            protected set { name = value; }
         }
 
         public string Patronymic
         {
             get { return patronymic; }
+            protected set { patronymic = value; }
         }
 
         public string PhoneNumber
@@ -56,7 +59,8 @@ namespace Task_10._1
 
         public string PassportData
         {
-            get { return "**** ******"; }
+            get { return string.IsNullOrEmpty(passportData) ? "" : "**** ******"; }
+            protected set { passportData = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

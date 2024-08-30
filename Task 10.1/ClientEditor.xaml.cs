@@ -26,6 +26,23 @@ namespace Task_10._1
             InitializeComponent();
             this.client = client;
 
+            SurnameTextBox.Text = client.Surname;
+            NameTextBox.Text = client.Name;
+            PatronymicTextBox.Text = client.Patronymic;
+            PhoneNumberTextBox.Text = client.PhoneNumber;
+
+            ChangeDateLabel.Content = client.ChangeTime;
+            ChangeTypeLabel.Content = client.ChangeType;
+            EditorLabel.Content = client.Editor;
+
+            string changedData = "";
+            foreach(string property in client.ChangedData)
+            {
+                changedData += property + ";";
+            }
+
+            ChangedPropertiesTextBlock.Text = changedData;
+
             if (role == "consultant")
             {
                 SurnameTextBox.IsReadOnly = true;
@@ -33,10 +50,6 @@ namespace Task_10._1
                 PatronymicTextBox.IsReadOnly = true;
                 PassportTextBox.IsReadOnly = true;
 
-                SurnameTextBox.Text = client.Surname;
-                NameTextBox.Text = client.Name;
-                PatronymicTextBox.Text = client.Patronymic;
-                PhoneNumberTextBox.Text = client.PhoneNumber;
                 PassportTextBox.Text = client.PassportData;
 
                 SaveManagerButton.Visibility = Visibility.Collapsed;
@@ -52,10 +65,6 @@ namespace Task_10._1
                 PatronymicTextBox.IsReadOnly = false;
                 PassportTextBox.IsReadOnly = false;
 
-                SurnameTextBox.Text = clientForManager.Surname;
-                NameTextBox.Text = clientForManager.Name;
-                PatronymicTextBox.Text = clientForManager.Patronymic;
-                PhoneNumberTextBox.Text = clientForManager.PhoneNumber;
                 PassportTextBox.Text = clientForManager.PassportData;
 
                 SaveManagerButton.Visibility = Visibility.Visible;
@@ -74,7 +83,9 @@ namespace Task_10._1
                 return;
             }
 
-            client.PhoneNumber = PhoneNumberTextBox.Text;
+            Client newClient = new Client(client.Surname, client.Name, client.Patronymic, PhoneNumberTextBox.Text, client.PassportData);
+            Consultant consultant = new Consultant();
+            consultant.EditClient(client, newClient);
 
             this.DialogResult = true;
             this.Close();
@@ -112,14 +123,12 @@ namespace Task_10._1
                                 "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            ClientForManager clientForManager;
-            clientForManager = (ClientForManager)client;
 
-            clientForManager.Surname = SurnameTextBox.Text;
-            clientForManager.Name = NameTextBox.Text;
-            clientForManager.Patronymic = PatronymicTextBox.Text;
-            clientForManager.PhoneNumber = PhoneNumberTextBox.Text;
-            clientForManager.PassportData = PassportTextBox.Text;
+            ClientForManager newClient = new ClientForManager(SurnameTextBox.Text, NameTextBox.Text, PatronymicTextBox.Text,
+                PhoneNumberTextBox.Text, PassportTextBox.Text);
+
+            Manager manager = new Manager();
+            manager.EditClient(client, newClient);
 
             this.DialogResult = true;
             this.Close();

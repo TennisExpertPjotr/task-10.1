@@ -16,6 +16,11 @@ namespace Task_10._1
         private string phoneNumber;
         protected string passportData;
 
+        public DateTime ChangeTime {  get; set; }
+        public List<string> ChangedData {  get; set; }
+        public string ChangeType {  get; set; }
+        public string Editor {  get; set; }
+
         public Client(string surname, string name, string patronymic, string phoneNumber, string passportData)
         {
             this.surname = surname;
@@ -23,6 +28,10 @@ namespace Task_10._1
             this.patronymic = patronymic;
             this.phoneNumber = phoneNumber;
             this.passportData = passportData;
+            this.ChangeTime = DateTime.Now;
+            this.ChangedData = ["Фамилия", "Имя", "Отчество", "Номер телефона", "Паспортные данные"];
+            this.ChangeType = "запись добавлена";
+            this.Editor = "менеджер";
         }
 
         public string Surname

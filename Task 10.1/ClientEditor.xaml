@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task_10._1"
         mc:Ignorable="d"
-        Title="Редактирование" Height="330" Width="300" Icon="/a-bank-logo.png">
+        Title="Редактирование" Height="350" Width="500" Icon="/a-bank-logo.png">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -35,10 +39,25 @@
         <Label Content="Серия и номер паспорта:" Grid.Row="8"/>
         <TextBox x:Name="PassportTextBox" FontWeight="Bold" FontSize="14" Grid.Row="9"/>
 
-        <Button x:Name="SaveButton" Content="Сохранить" Grid.Row="10" Click="SaveConsultantButton_Click"
+        <Button x:Name="SaveButton" Content="Сохранить изменения" Grid.Row="10" Click="SaveConsultantButton_Click"
                 Background="#FFEF3124" FontSize="16" Foreground="White" BorderBrush="#FFEF3124"/>
 
-        <Button x:Name="SaveManagerButton" Content="Сохранить" Grid.Row="10" Click="SaveManagerButton_Click"
+        <Button x:Name="SaveManagerButton" Content="Сохранить изменения" Grid.Row="10" Click="SaveManagerButton_Click"
         Background="#FFEF3124" FontSize="16" Foreground="White" BorderBrush="#FFEF3124"/>
+
+        <Label Content="Последние изменения" Grid.Column="1" Grid.Row="0" FontWeight="Bold" Foreground="#FFAEAEAE"/>
+
+        <Label Content="Дата и время изменения записи:" Grid.Column="1" Grid.Row="1" Foreground="#FFAEAEAE"/>
+        <Label x:Name="ChangeDateLabel" Grid.Column="1" Grid.Row="2" FontFamily="Cascadia Mono Light"/>
+
+        <Label Content="Какие данные изменены:" Grid.Column="1" Grid.Row="3" Foreground="#FFAEAEAE"/>
+        <TextBlock x:Name="ChangedPropertiesTextBlock" Grid.Column="1" Grid.Row="4" FontFamily="Cascadia Mono Light"
+                   Padding="2" TextWrapping="Wrap" TextAlignment="Left"/>
+        
+        <Label Content="Тип изменений:" Grid.Column="1" Grid.Row="5" Foreground="#FFAEAEAE" />
+        <Label x:Name="ChangeTypeLabel" Grid.Column="1" Grid.Row="6" FontFamily="Cascadia Mono Light"/>
+
+        <Label Content="Кто изменил:" Grid.Column="1" Grid.Row="7" Foreground="#FFAEAEAE"/>
+        <Label x:Name="EditorLabel" Grid.Column="1" Grid.Row="8" FontFamily="Cascadia Mono Light"/>
     </Grid>
 </Window>

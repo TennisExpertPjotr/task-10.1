@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="ClientsListBox" Grid.Column="0" Margin="10">
+            <ListBox x:Name="ClientsListBox" Grid.Column="0" Margin="10 10 10 60">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Padding="5" Margin="2" Background="AliceBlue">
@@ -43,13 +43,16 @@
                                 <TextBlock FontSize="16" Text="{Binding Path=Patronymic}" HorizontalAlignment="Center" />
                                 <TextBlock FontSize="16" Text="{Binding Path=PhoneNumber}" HorizontalAlignment="Center" />
                                 <TextBlock FontSize="16" Text="{Binding Path=PassportData}" HorizontalAlignment="Center" />
-                                <Button Content="Редактировать" FontSize="14" Click="EditButton_Click" Tag="{Binding}"
+                                <Button Content="Подробнее" FontSize="14" Click="EditButton_Click" Tag="{Binding}"
                                 Background="#FF181818" Foreground="White" BorderBrush="#FF181818" Padding="5"/>
                         </StackPanel>
                         </TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Button x:Name="AddClientButton" Content="Добавить клиента" Grid.Column="0" VerticalAlignment="Bottom" Height="40" Margin="10"
+                    Background="#FFEF3124" FontSize="16" Foreground="White" BorderBrush="#FFEF3124" 
+                    IsEnabled="False" Click="AddClientButton_Click"/>
             <Image Grid.Column="1" Margin="10" Source="/ad.PNG"/>
         </Grid>
     </Grid>

@@ -7,11 +7,17 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ClientAdder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ClientEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ClientAdder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ClientEditor.xaml">
       <SubType>Designer</SubType>
     </Page>

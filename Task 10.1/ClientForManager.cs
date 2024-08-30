@@ -14,12 +14,15 @@ namespace Task_10._1
             
         }
 
-        // Переопределение свойств для предоставления доступа на запись
         public new string Surname
         {
             get { return base.Surname; }
             set 
-            { 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Surname cannot be empty.");
+                }
                 base.Surname = value; 
                 OnPropertyChanged("Surname"); 
             }
@@ -29,7 +32,11 @@ namespace Task_10._1
         {
             get { return base.Name; }
             set 
-            { 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Name cannot be empty.");
+                }
                 base.Name = value; 
                 OnPropertyChanged("Name"); 
             }
@@ -39,7 +46,11 @@ namespace Task_10._1
         {
             get { return base.Patronymic; }
             set 
-            { 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Patronymic cannot be empty.");
+                }
                 base.Patronymic = value;
                 OnPropertyChanged("Patronymic");
             }
@@ -49,7 +60,11 @@ namespace Task_10._1
         {
             get { return base.passportData; }
             set 
-            { 
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("PassportData cannot be empty.");
+                }
                 base.PassportData = value;
                 OnPropertyChanged("PassportData");
             }

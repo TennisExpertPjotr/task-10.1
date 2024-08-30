@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Printing;
+using System.Collections.ObjectModel;
 
 namespace Task_10._1
 {
@@ -20,8 +21,8 @@ namespace Task_10._1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Client> clients = new List<Client>();
-        private List<ClientForManager> clientsForManager = new List<ClientForManager>();
+        private ObservableCollection<Client> clients = new ObservableCollection<Client>();
+        private ObservableCollection<ClientForManager> clientsForManager = new ObservableCollection<ClientForManager>();
         private string role;
         private Client selectedClient;
         private const string filePath = "clients.json";
@@ -43,12 +44,14 @@ namespace Task_10._1
                     role = "consultant";
                     LoadClientsFromJson();
                     ClientsListBox.ItemsSource = clients;
+                    AddClientButton.IsEnabled = false;
                 }
                 else if (selectedItemText == "Менеджер")
                 {
                     role = "manager";
                     LoadClientsForManagerFromJson();
-                    ClientsListBox.ItemsSource = clientsForManager;
+                    ClientsListBox.ItemsSource = clientsForManager; 
+                    AddClientButton.IsEnabled = true;
                 }
                 else
                 {
@@ -74,7 +77,7 @@ namespace Task_10._1
                         IncludeFields = true
                     };
 
-                    clients = JsonSerializer.Deserialize<List<Client>>(json, options);
+                    clients = JsonSerializer.Deserialize<ObservableCollection<Client>>(json, options);
                 }
                 catch (Exception ex)
                 {
@@ -96,7 +99,7 @@ namespace Task_10._1
                         IncludeFields = true
                     };
 
-                    clientsForManager = JsonSerializer.Deserialize<List<ClientForManager>>(json, options);
+                    clientsForManager = JsonSerializer.Deserialize<ObservableCollection<ClientForManager>>(json, options);
                 }
                 catch (Exception ex)
                 {
@@ -111,11 +114,11 @@ namespace Task_10._1
 
             if (role == "manager")
             {
-                selectedClient = button.Tag as ClientForManager; // Менеджер редактирует ClientForManager
+                selectedClient = button.Tag as ClientForManager; 
             }
             else if (role == "consultant")
             {
-                selectedClient = button.Tag as Client; // Консультант редактирует Client
+                selectedClient = button.Tag as Client; 
             }
 
             if (selectedClient != null)
@@ -126,6 +129,21 @@ namespace Task_10._1
             else
             {
                 MessageBox.Show("Клиент не выбран или тип клиента неверен.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void AddClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            if (clientsForManager != null)
+            {
+                ClientAdder detailsWindow = new ClientAdder(clientsForManager);
+                bool? result = detailsWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

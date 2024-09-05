@@ -13,6 +13,7 @@ using System.IO;
 using System.Text.Json;
 using System.Printing;
 using System.Collections.ObjectModel;
+using System.Collections.Immutable;
 
 namespace Task_10._1
 {
@@ -78,6 +79,7 @@ namespace Task_10._1
                     };
 
                     clients = JsonSerializer.Deserialize<ObservableCollection<Client>>(json, options);
+                    SortObservableCollection(clients);
                 }
                 catch (Exception ex)
                 {
@@ -100,11 +102,24 @@ namespace Task_10._1
                     };
 
                     clientsForManager = JsonSerializer.Deserialize<ObservableCollection<ClientForManager>>(json, options);
+                    SortObservableCollection(clientsForManager);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
+        }
+
+        static void SortObservableCollection<T>(ObservableCollection<T> collection)
+        {
+            List<T> sortedList = collection.ToList();
+            sortedList.Sort();
+
+            collection.Clear();
+            foreach (var client in sortedList)
+            {
+                collection.Add(client);
             }
         }
 
@@ -140,6 +155,7 @@ namespace Task_10._1
             {
                 ClientAdder detailsWindow = new ClientAdder(clientsForManager);
                 bool? result = detailsWindow.ShowDialog();
+                SortObservableCollection(clientsForManager);
             }
             else
             {

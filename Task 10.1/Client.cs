@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Task_10._1
 {
-    public class Client : INotifyPropertyChanged
+    public class Client : INotifyPropertyChanged, IComparable<Client>
     {
         private string surname;
         private string name;
@@ -70,6 +70,17 @@ namespace Task_10._1
         {
             get { return string.IsNullOrEmpty(passportData) ? "" : "**** ******"; }
             protected set { passportData = value; }
+        }
+
+        public int CompareTo(Client other)
+        {
+            string thisFullname = this.Surname + this.Name + this.Patronymic;
+            string otherFullname = other.Surname + other.Name + other.Patronymic;
+
+            if(other == null)
+                return 1;
+
+            return string.Compare(thisFullname, otherFullname, StringComparison.OrdinalIgnoreCase);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
